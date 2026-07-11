@@ -32,4 +32,10 @@ test("convert 10 to roman numeral", () => {
     expect(convertToRomanNumeral(10)).toBe("X")
 })
 
-test("convert 20")
+test("convert 40 to roman numeral", () => {
+    expect(convertToRomanNumeral(40)).toBe("XL")
+})
+
+test("convert 50 to roman numeral", () => {
+    expect
+})
