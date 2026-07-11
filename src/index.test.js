@@ -47,3 +47,21 @@ test("convert 90 to roman numeral", () => {
 test("convert 100 to roman numeral", () => {
     expect(convertToRomanNumeral(100)).toBe("C")
 })
+
+test("convert 400 to roman numeral", () => {
+    expect(convertToRomanNumeral(400)).toBe("CD")
+})
+
+test("convert 500 to roman numeral", () => {
+    expect(convertToRomanNumeral(500)).toBe("D")
+})
+
+
+test("convert 900 to roman numeral", () => {
+    expect(convertToRomanNumeral(900)).toBe("CM")
+})
+
+
+test("convert 1000 to roman numeral", () => {
+    expect(convertToRomanNumeral(1000)).toBe("M")
+})
