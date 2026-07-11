@@ -27,3 +27,9 @@ test("convert 9 to roman numeral", () => {
 test("convert 6 to roman numeral", () => {
     expect(convertToRomanNumeral(6)).toBe("VI")
 })
+
+test("convert 10 to roman numeral", () => {
+    expect(convertToRomanNumeral(10)).toBe("X")
+})
+
+test("convert 20")
