@@ -51,3 +51,7 @@ export function convertToRomanNumeral(number) {
         return convertAbnormalNumberToRomanNumeral(number)
     }
 }
+
+export function convertToInteger(numeral) {
+    
+}
