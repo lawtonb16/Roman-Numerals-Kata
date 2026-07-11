@@ -3,7 +3,9 @@ const romanNumeralConversionTable = {
     "2": "II",
     "3": "III",
     "4": "IV",
-    "5": "V"
+    "5": "V",
+    "6": this["5"] + this["1"],
+    "9": "IX"
 }
 
 export function convertToRomanNumeral(number) {

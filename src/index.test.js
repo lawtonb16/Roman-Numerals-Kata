@@ -12,3 +12,14 @@ test("convert 2 to a roman numeral", () => {
 test("convert 3 to roman numeral", () => {
     expect(convertToRomanNumeral(3)).toBe("III")
 })
+
+test("convert 4 to roman numeral", () => {
+    expect(convertToRomanNumeral(4)).toBe("IV")
+})
+
+test("convert 5 to roman numeral", () => {
+    expect(convertToRomanNumeral(5)).toBe("V")
+})
+test("convert 9 to roman numeral", () => {
+    expect(convertToRomanNumeral(9)).toBe("IX")
+})
