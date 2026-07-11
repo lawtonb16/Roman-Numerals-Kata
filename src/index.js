@@ -4,7 +4,7 @@ const romanNumeralConversionTable = {
     "3": "III",
     "4": "IV",
     "5": "V",
-    "6": this["5"] + this["1"],
+    "6": "VI",
     "9": "IX"
 }
 
