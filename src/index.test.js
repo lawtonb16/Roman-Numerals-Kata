@@ -37,5 +37,5 @@ test("convert 40 to roman numeral", () => {
 })
 
 test("convert 50 to roman numeral", () => {
-    expect
+    expect(convertToRomanNumeral(50)).toBe("L")
 })
