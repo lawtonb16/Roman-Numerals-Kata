@@ -6,7 +6,8 @@ const romanNumeralConversionTable = {
     5: "V",
     6: "VI",
     9: "IX",
-    10: "X"
+    10: "X",
+    40: "XL",
 }
 
 export function convertToRomanNumeral(number) {
