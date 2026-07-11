@@ -9,6 +9,7 @@ const romanNumeralConversionTable = {
     10: "X",
     40: "XL",
     50: "L",
+    90: "XC",
 }
 
 export function convertToRomanNumeral(number) {

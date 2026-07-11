@@ -39,3 +39,11 @@ test("convert 40 to roman numeral", () => {
 test("convert 50 to roman numeral", () => {
     expect(convertToRomanNumeral(50)).toBe("L")
 })
+
+test("convert 90 to roman numeral", () => {
+    expect(convertToRomanNumeral(90)).toBe("XC")
+})
+
+test("convert 100 to roman numeral", () => {
+    expect(convertToRomanNumeral(100)).toBe("C")
+})
