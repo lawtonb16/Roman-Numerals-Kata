@@ -4,7 +4,6 @@ const romanNumeralConversionTable = {
     3: "III",
     4: "IV",
     5: "V",
-    6: "VI",
     9: "IX",
     10: "X",
     40: "XL",
@@ -17,8 +16,31 @@ const romanNumeralConversionTable = {
     1000: "M"
 }
 
+function findHighestBelow(obj, target) {
+  return Object.entries(obj).reduce((highest, [key]) => {
+    const numericKey = Number(key);
+    if (numericKey <= target && (highest === null || numericKey > highest)) {
+      return numericKey;
+    }
+    return highest;
+  }, null);
+}
+
 function convertAbnormalNumberToRomanNumeral(number) {
-    
+    let remainingNumber = number;
+    let romanNumeralArray = [];
+
+    while (remainingNumber > 0) {
+        const highestNumberNumeralKey = findHighestBelow(romanNumeralConversionTable, remainingNumber);
+        if (highestNumberNumeralKey === null) {
+            break;
+        }
+
+        romanNumeralArray.push(romanNumeralConversionTable[highestNumberNumeralKey]);
+        remainingNumber -= highestNumberNumeralKey;
+    }
+
+    return romanNumeralArray.join("")
 }
 
 export function convertToRomanNumeral(number) {
@@ -26,6 +48,6 @@ export function convertToRomanNumeral(number) {
     if (romanNumeralConversionTable[number]) {
         return romanNumeral = romanNumeralConversionTable[number] 
     } else {
-        convertAbnormalNumberToRomanNumeral(number)
+        return convertAbnormalNumberToRomanNumeral(number)
     }
 }
