@@ -8,3 +8,7 @@ test("convert 1 to a roman numeral", () => {
 test("convert 2 to a roman numeral", () => {
     expect(convertToRomanNumeral(2)).toBe("II")
 })
+
+test("convert 3 to roman numeral", () => {
+    expect(convertToRomanNumeral(3)).toBe("III")
+})
