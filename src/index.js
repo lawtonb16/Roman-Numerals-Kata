@@ -10,10 +10,22 @@ const romanNumeralConversionTable = {
     40: "XL",
     50: "L",
     90: "XC",
-    100: "C"
+    100: "C",
+    400: "CD",
+    500: "D",
+    900: "CM",
+    1000: "M"
+}
+
+function convertAbnormalNumberToRomanNumeral(number) {
+    
 }
 
 export function convertToRomanNumeral(number) {
     let romanNumeral
-    return romanNumeral = romanNumeralConversionTable[number]
+    if (romanNumeralConversionTable[number]) {
+        return romanNumeral = romanNumeralConversionTable[number] 
+    } else {
+        convertAbnormalNumberToRomanNumeral(number)
+    }
 }
