@@ -65,3 +65,7 @@ test("convert 900 to roman numeral", () => {
 test("convert 1000 to roman numeral", () => {
     expect(convertToRomanNumeral(1000)).toBe("M")
 })
+
+test("convert 2022 to roman numeral", () => {
+    expect(convertToRomanNumeral(2022)).toBe("MMXXII")
+})

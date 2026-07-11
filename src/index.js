@@ -17,7 +17,15 @@ const romanNumeralConversionTable = {
     1000: "M"
 }
 
+function convertAbnormalNumberToRomanNumeral(number) {
+    
+}
+
 export function convertToRomanNumeral(number) {
     let romanNumeral
-    return romanNumeral = romanNumeralConversionTable[number]
+    if (romanNumeralConversionTable[number]) {
+        return romanNumeral = romanNumeralConversionTable[number] 
+    } else {
+        convertAbnormalNumberToRomanNumeral(number)
+    }
 }
