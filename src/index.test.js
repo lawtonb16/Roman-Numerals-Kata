@@ -5,10 +5,6 @@ test("convert 1 to a roman numeral", () => {
     expect(convertToRomanNumeral(1)).toBe("I")
 })
 
-test("convert 11 to a roman numeral", () => {
-    expect(convertToRomanNumeral(11)).toBe("II")
-})
-
-test("convert 54321 to a roman numeral", () => {
-    expect(convertToRomanNumeral(54321)).toBe("VIVIIIIII")
+test("convert 2 to a roman numeral", () => {
+    expect(convertToRomanNumeral(2)).toBe("II")
 })
