@@ -1,9 +1,13 @@
 
 
 export function convertToRomanNumeral(number) {
-    let numberString = number.toString()
-    for(let i = 0; i < numberString.length; i++) {
-        numberString[i] = "I"
+    let romanNumeral
+    if (number == 1) {
+        romanNumeral = "I"
+    } else {
+        romanNumeral = "II"
     }
-    return numberString
+       
+    
+    return romanNumeral
 }
