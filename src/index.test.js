@@ -8,3 +8,7 @@ test("convert 1 to a roman numeral", () => {
 test("convert 11 to a roman numeral", () => {
     expect(convertToRomanNumeral(11)).toBe("II")
 })
+
+test("convert 54321 to a roman numeral", () => {
+    expect(convertToRomanNumeral(54321)).toBe("VIVIIIIII")
+})

@@ -1,13 +1,18 @@
-
+const romanNumeralConversionTable = {
+    "1": "I",
+    "2": "II",
+    "3": "III",
+    "4": "IV",
+    "5": "V"
+}
 
 export function convertToRomanNumeral(number) {
+    let numberArray = []
+    let numberString = number.toString()
     let romanNumeral
-    if (number == 1) {
-        romanNumeral = "I"
-    } else {
-        romanNumeral = "II"
+    for(let num of numberString) {
+        numberArray.push(romanNumeralConversionTable[num])
     }
-       
-    
-    return romanNumeral
+
+    return romanNumeral = numberArray.join("")
 }
