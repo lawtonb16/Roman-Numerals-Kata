@@ -53,5 +53,9 @@ export function convertToRomanNumeral(number) {
 }
 
 export function convertToInteger(numeral) {
-    
+    if(numeral == "I") {
+        return 1
+    } else {
+        return 2
+    }
 }

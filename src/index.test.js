@@ -73,3 +73,7 @@ test("convert 2022 to roman numeral", () => {
 test("convert I to integer", () => {
     expect(convertToInteger("I")).toBe(1)
 })
+
+test("convert II to integer", () => {
+    expect(convertToInteger("II")).toBe(2)
+})
