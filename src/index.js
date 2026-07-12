@@ -53,9 +53,21 @@ export function convertToRomanNumeral(number) {
 }
 
 export function convertToInteger(numeral) {
-    if(numeral == "I") {
-        return 1
-    } else {
-        return 2
+    let total = 0;
+    let previousValue = 0;
+
+    for (let index = numeral.length - 1; index >= 0; index -= 1) {
+        const currentSymbol = numeral[index];
+        const currentValue = Object.values(romanNumeralConversionTable).find((value) => value === currentSymbol);
+        const numericValue = currentValue ? Number(Object.keys(romanNumeralConversionTable).find((key) => romanNumeralConversionTable[key] === currentValue)) : 0;
+
+        if (numericValue < previousValue) {
+            total -= numericValue;
+        } else {
+            total += numericValue;
+            previousValue = numericValue;
+        }
     }
+
+    return total;
 }

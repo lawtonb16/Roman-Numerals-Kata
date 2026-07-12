@@ -77,3 +77,7 @@ test("convert I to integer", () => {
 test("convert II to integer", () => {
     expect(convertToInteger("II")).toBe(2)
 })
+
+test("convert MMXXII to integer", () => {
+    expect(convertToInteger("MMXXII")).toBe(2022)
+})
