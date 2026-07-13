@@ -14,7 +14,7 @@ const romanNumeralConversionTable = {
     500: "D",
     900: "CM",
     1000: "M"
-}
+};
 
 const romanSymbolValueTable = {
     I: 1,
@@ -24,21 +24,21 @@ const romanSymbolValueTable = {
     C: 100,
     D: 500,
     M: 1000,
-}
+};
 
 function findHighestBelow(obj, target) {
-  return Object.entries(obj).reduce((highest, [key]) => {
-    const numericKey = Number(key);
-    if (numericKey <= target && (highest === null || numericKey > highest)) {
-      return numericKey;
-    }
-    return highest;
-  }, null);
+    return Object.entries(obj).reduce((highest, [key]) => {
+        const numericKey = Number(key);
+        if (numericKey <= target && (highest === null || numericKey > highest)) {
+            return numericKey;
+        }
+        return highest;
+    }, null);
 }
 
 function convertAbnormalNumberToRomanNumeral(number) {
     let remainingNumber = number;
-    let romanNumeralArray = [];
+    const romanNumeralArray = [];
 
     while (remainingNumber > 0) {
         const highestNumberNumeralKey = findHighestBelow(romanNumeralConversionTable, remainingNumber);
@@ -50,16 +50,15 @@ function convertAbnormalNumberToRomanNumeral(number) {
         remainingNumber -= highestNumberNumeralKey;
     }
 
-    return romanNumeralArray.join("")
+    return romanNumeralArray.join("");
 }
 
 export function convertToRomanNumeral(number) {
-    let romanNumeral
     if (romanNumeralConversionTable[number]) {
-        return romanNumeral = romanNumeralConversionTable[number] 
-    } else {
-        return convertAbnormalNumberToRomanNumeral(number)
+        return romanNumeralConversionTable[number];
     }
+
+    return convertAbnormalNumberToRomanNumeral(number);
 }
 
 export function convertToInteger(numeral) {
@@ -67,10 +66,6 @@ export function convertToInteger(numeral) {
         const value = romanSymbolValueTable[symbol];
         const nextValue = romanSymbolValueTable[symbols[index + 1]] ?? 0;
 
-        if (value < nextValue) {
-            return total - value;
-        }
-
-        return total + value;
+        return value < nextValue ? total - value : total + value;
     }, 0);
 }
