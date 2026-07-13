@@ -1,4 +1,4 @@
-import { convertToRomanNumeral } from "./index.js"
+import { convertToRomanNumeral, convertToInteger } from "./index.js"
 import { test, expect } from "vitest"
 
 test("convert 1 to a roman numeral", () => {
@@ -68,4 +68,16 @@ test("convert 1000 to roman numeral", () => {
 
 test("convert 2022 to roman numeral", () => {
     expect(convertToRomanNumeral(2022)).toBe("MMXXII")
+})
+
+test("convert I to integer", () => {
+    expect(convertToInteger("I")).toBe(1)
+})
+
+test("convert II to integer", () => {
+    expect(convertToInteger("II")).toBe(2)
+})
+
+test("convert MMXXII to integer", () => {
+    expect(convertToInteger("MMXXII")).toBe(2022)
 })

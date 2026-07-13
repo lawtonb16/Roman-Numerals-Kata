@@ -16,6 +16,16 @@ const romanNumeralConversionTable = {
     1000: "M"
 }
 
+const romanSymbolValueTable = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+}
+
 function findHighestBelow(obj, target) {
   return Object.entries(obj).reduce((highest, [key]) => {
     const numericKey = Number(key);
@@ -50,4 +60,17 @@ export function convertToRomanNumeral(number) {
     } else {
         return convertAbnormalNumberToRomanNumeral(number)
     }
+}
+
+export function convertToInteger(numeral) {
+    return [...numeral].reduce((total, symbol, index, symbols) => {
+        const value = romanSymbolValueTable[symbol];
+        const nextValue = romanSymbolValueTable[symbols[index + 1]] ?? 0;
+
+        if (value < nextValue) {
+            return total - value;
+        }
+
+        return total + value;
+    }, 0);
 }
