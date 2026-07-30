@@ -1,22 +1,4 @@
-const romanNumeralConversionTable = {
-    1: "I",
-    2: "II",
-    3: "III",
-    4: "IV",
-    5: "V",
-    9: "IX",
-    10: "X",
-    40: "XL",
-    50: "L",
-    90: "XC",
-    100: "C",
-    400: "CD",
-    500: "D",
-    900: "CM",
-    1000: "M"
-};
-
-const romanSymbolValueTable = {
+const romanSymbols = {
     I: 1,
     V: 5,
     X: 10,
@@ -26,39 +8,39 @@ const romanSymbolValueTable = {
     M: 1000,
 };
 
-function findHighestBelow(obj, target) {
-    return Object.entries(obj).reduce((highest, [key]) => {
-        const numericKey = Number(key);
-        if (numericKey <= target && (highest === null || numericKey > highest)) {
-            return numericKey;
-        }
-        return highest;
-    }, null);
+// Subtractive notation rules: smaller symbol can subtract from larger symbol
+const subtractiveRules = [
+    ['I', 'V'],  // IV = 4
+    ['I', 'X'],  // IX = 9
+    ['X', 'L'],  // XL = 40
+    ['X', 'C'],  // XC = 90
+    ['C', 'D'],  // CD = 400
+    ['C', 'M']   // CM = 900
+];
+
+// Derive the full symbol value table from rules
+const romanSymbolValueTable = { ...romanSymbols };
+for (const [smallSym, largeSym] of subtractiveRules) {
+    romanSymbolValueTable[smallSym + largeSym] = romanSymbols[largeSym] - romanSymbols[smallSym];
 }
 
-function convertAbnormalNumberToRomanNumeral(number) {
-    let remainingNumber = number;
-    const romanNumeralArray = [];
-
-    while (remainingNumber > 0) {
-        const highestNumberNumeralKey = findHighestBelow(romanNumeralConversionTable, remainingNumber);
-        if (highestNumberNumeralKey === null) {
-            break;
-        }
-
-        romanNumeralArray.push(romanNumeralConversionTable[highestNumberNumeralKey]);
-        remainingNumber -= highestNumberNumeralKey;
-    }
-
-    return romanNumeralArray.join("");
-}
+// Pre-sorted array of [value, symbol] pairs in descending order for efficient lookup
+const sortedRomanNumerals = Object.entries(romanSymbolValueTable)
+    .map(([symbol, value]) => [value, symbol])
+    .sort((a, b) => b[0] - a[0]);
 
 export function convertToRomanNumeral(number) {
-    if (romanNumeralConversionTable[number]) {
-        return romanNumeralConversionTable[number];
+    let result = "";
+    let remaining = number;
+
+    for (const [value, symbol] of sortedRomanNumerals) {
+        while (remaining >= value) {
+            result += symbol;
+            remaining -= value;
+        }
     }
 
-    return convertAbnormalNumberToRomanNumeral(number);
+    return result;
 }
 
 export function convertToInteger(numeral) {
